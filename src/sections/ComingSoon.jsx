@@ -12,7 +12,8 @@ const Comingsoon = () => {
             
             <div className="flex-top gap-10">       
                 <img src="/images/ps-logo.svg"  className="md:w-32 w-20"/>
-                 <img src="/images/x-logo.svg"  className="md:w-52 w-40"/>
+                <img src="/images/x-logo.svg"  className="md:w-52 w-40"/>
+            <img src="/images/pc-logo.svg" alt="PC platform logo" className="md:w-32 w-20"/>
             </div>
         </div>
     </section>
