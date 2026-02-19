@@ -10,7 +10,7 @@ const Hero = () => {
         maskSize: initialMaskSize,
     });
 
-    gsap.set(".mask-logo", {marginTop: "-100vh", opacity: 0});
+    gsap.set(".mask-logo", {marginTop: "-30vh", opacity: 0});
     
     gsap.set('.entrance-message', {marginTop: '0vh'});
 
