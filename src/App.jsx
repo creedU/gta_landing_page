@@ -24,6 +24,7 @@ const app = () => {
       <Lucia  />
       
       <PostCard />
+      <Final />
     </main>
   )
 }
