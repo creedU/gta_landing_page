@@ -1,54 +1,46 @@
+
 import gsap from "gsap";
-import { useRef, useEffect } from "react";
+import { useGSAP } from "@gsap/react";
+import { useRef } from "react"
 
 const PostCard = () => {
-    const videoRef = useRef(null);
+  const videoRef = useRef(null);
 
-    useEffect(() => {
-      const node = videoRef.current;
-      if (!node) return;
+  useGSAP(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.post-card',
+        start: 'top center',
+        end: 'bottom center',
+        scrub: true,
+      }
+    })
 
-      const onLoaded = () => {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: ".post-card",
-            start: "top center",
-            end: "bottom center",
-            scrub: true,
-          }
-        });
-
-        tl.to(node, {
-          currentTime: node.duration,
-          duration: 3,
-          ease: "power1.inOut",
-        }, "<");
-      };
-
-      node.addEventListener('loadedmetadata', onLoaded);
-      return () => node.removeEventListener('loadedmetadata', onLoaded);
-    }, []);
+    videoRef.current.onloadedmetadata = () => {
+      tl.to(videoRef.current, { currentTime: videoRef.current.duration, duration: 3, ease: 'power1.inOut' }, '<');
+    }
+  })
 
   return (
     <section className="post-card">
-        <div className="animated-gradient-bg">
-          <div className="post-card-wrapper group hover:rotate-1 transition duration-700">
-            <img src="/images/overlay.webp"/>
+      <div className="animated-gradient-bg" />
 
-            <video
-              ref={videoRef}
-              muted
-              playsInline
-              preload="auto"
-              src="/videos/postcard-vd.mp4"
-              className="size-full object-cover post-card-video"
-            />
-            
-            <button className="group-hover:bg-yellow-500 transition duration-700">
-                Explore Leonida Keys
-            </button>
-          </div>
-        </div>
+      <div className="post-card-wrapper group hover:rotate-1 hover:-[1.02] transition duration-700">
+        <img src="/images/overlay.webp" />
+
+        <video 
+          ref={videoRef}
+          muted
+          playsInline
+          autoPlay
+          preload="auto"
+          src="/videos/postcard-vd.mp4"
+        />
+
+        <button className="group-hover:bg-yellow transation duration-700">
+          Explore Leonida Keys
+        </button>
+      </div>
     </section>
   )
 }
