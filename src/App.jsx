@@ -1,4 +1,3 @@
-import App from "./App.jsx";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 
@@ -14,7 +13,7 @@ import Outro from "./sections/Outro";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const app = () => {
+const App = () => {
   return (
     <main>
       <NavBar />
