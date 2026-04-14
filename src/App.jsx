@@ -1,3 +1,4 @@
+import App from "./App.jsx";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 
